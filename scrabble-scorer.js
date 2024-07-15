@@ -32,13 +32,13 @@ function oldScrabbleScorer(word) {
 // don't change the names or your program won't work as expected. //
 
 function initialPrompt() {
-   let alphabet = /^[a-zA-Z]+$/;
+   let alphabet = /[a-zA-Z]/;
    console.log("Let's play some scrabble!");
    let word = input.question("Enter a word to score: ");
    while(!alphabet.test(word)){
       word = input.question("Enter a word to score: ");
    }
-   
+   console.log(typeof transform(oldPointStructure));
    return word;
 };
 
@@ -111,7 +111,9 @@ Which scoring algorithm would you like to use?
 }
 
 function transform(oldPointStructure) {
-   let newPointStructure = {' ':0};
+   let newPointStructure = {};
+   //Causing failed test for bonus
+   //newPointStructure[' '] = 0;
    for (const key in oldPointStructure) {
       oldPointStructure[key].forEach(letter => {
          newPointStructure[letter.toLowerCase()] = Number(key);
