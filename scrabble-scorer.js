@@ -101,12 +101,12 @@ Which scoring algorithm would you like to use?
 1 - ${scoringAlgorithms[1].name}: ${scoringAlgorithms[1].description}
 2 - ${scoringAlgorithms[2].name}: ${scoringAlgorithms[2].description}
 `);
-   while(!validChoice){
+   //while(!validChoice){
       menuChoice = Number(input.question("Enter 0, 1, or 2: "));
-      if(menuChoice > 0 && menuChoice < 2){
-         validChoice = true;
-      }
-   }
+      //if(menuChoice > 0 && menuChoice < 2){
+         //validChoice = true;
+      //}
+   //}
    return scoringAlgorithms[menuChoice];
 }
 
