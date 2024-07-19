@@ -32,13 +32,12 @@ function oldScrabbleScorer(word) {
 // don't change the names or your program won't work as expected. //
 
 function initialPrompt() {
-   let alphabet = /[a-zA-Z]/;
+   let alphabet = /^[a-zA-Z]+$/;
    console.log("Let's play some scrabble!");
    let word = input.question("Enter a word to score: ");
    while(!alphabet.test(word)){
       word = input.question("Enter a word to score: ");
    }
-   console.log(typeof transform(oldPointStructure));
    return word;
 };
 
@@ -101,12 +100,12 @@ Which scoring algorithm would you like to use?
 1 - ${scoringAlgorithms[1].name}: ${scoringAlgorithms[1].description}
 2 - ${scoringAlgorithms[2].name}: ${scoringAlgorithms[2].description}
 `);
-   //while(!validChoice){
+   while(!validChoice){
       menuChoice = Number(input.question("Enter 0, 1, or 2: "));
-      //if(menuChoice > 0 && menuChoice < 2){
-         //validChoice = true;
-      //}
-   //}
+      if(menuChoice >= 0 && menuChoice <= 2){
+         validChoice = true;
+      }
+   }
    return scoringAlgorithms[menuChoice];
 }
 
